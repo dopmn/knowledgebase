@@ -35,7 +35,6 @@ in the .bash_profile add the following lines
 ---
 **Configuration**
 
----
 **Getting Along with CRUD in MVC...**
 
 Following are the boilerplate that I use for MVC in laravel. I also intend to make a shell script to generate these files.
@@ -46,11 +45,94 @@ in brief `routes > schema > model > controller > view`
 
    `Routes::resource("EntityName");`
 2. Schema (migration)
+
    `php artisan make:migration create_entities_table --create=entities`
 3. Model
+
    `php artisan make:model User`
 4. Controller
+
    `php artisan make:controller EntityController`
 5. View
-   // need to create the specific views
 
+   // need to create the specific views
+---
+** Crud Automation **
+
+*this is an implementaion of a [sitepoint artice](http://www.sitepoint.com/crud-create-read-update-delete-laravel-app/)*
+
+Lets assume that our entity name is BaseEntity
+1. in routes.php add the following line in the end of the file
+
+    `Routes::resource("BaseEntity");`
+2. To add the schema in our database
+    
+    * using terminal we need to run the following command, in the project directory
+    
+        `php artisan make:migration create_base_entities_table --table=base_entities`
+    
+        or (as --table is optional, only needed when the BaseEntity needs a specific name)
+        
+        `php artisan make:migration create_base_entities_table`
+    * then we need to add our attributes; to do this
+    
+        ~~`php artisan make:migration add_initial_attributes_to_entities_table --attributes`~~
+        
+        in the migrations folder, in the file starting with create_base_entities_table, write the
+        following
+            
+        ```
+            <?php
+
+            use Illuminate\Database\Schema\Blueprint;
+            use Illuminate\Database\Migrations\Migration;
+            
+            class CreateFlightsTable extends Migration
+            {
+                /**
+                 * Run the migrations.
+                 *
+                 * @return void
+                 */
+                public function up()
+                {
+                    Schema::create('flights', function (Blueprint $table) {
+                        $table->increments('id');
+                        $table->string('attribute1');
+                        $table->string('attribute2');
+                        $table->timestamps();
+                    });
+                }
+            
+                /**
+                 * Reverse the migrations.
+                 *
+                 * @return void
+                 */
+                public function down()
+                {
+                    Schema::drop('flights');
+                }
+            }
+        ```
+3. in the model folder we need to 
+    
+    * add a new file BaseEntity.php
+        alternatively we can run `php artisan make:model BaseEntity`
+    * in the file BaseEntity.php, add the following lines 
+    
+        ```
+        class Task extends Model {
+             /**
+            * Fillable fields
+            * 
+             * @var array
+            */
+            protected $fillable = [
+                'attribute1',
+                'attribute2'
+            ];
+        }
+        ```
+4. to add the controller do this
+    * 
