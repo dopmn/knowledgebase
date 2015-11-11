@@ -1,6 +1,6 @@
 ### Index
 * [Laravel](#laravel)
-* [some other file](./something/index.md)
+* [some other file](./web/index.md)
 
 
 ### Laravel
