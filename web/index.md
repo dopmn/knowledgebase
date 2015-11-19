@@ -1,5 +1,6 @@
-### Index
+### Index (../README.md)
 * [Laravel](#laravel)
+* [Bootstrap](#bootstrap)
 * [some other file](./something/index.md)
 
 
@@ -136,3 +137,13 @@ Lets assume that our entity name is BaseEntity
         ```
 4. to add the controller do this
     * 
+
+
+
+
+---
+
+### Bootstrap
+
+to install bootstrap, and customize bootstrap using Sass (SCSS), please follow the steps 
+below
