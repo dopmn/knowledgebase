@@ -1,6 +1,6 @@
-### Index (../README.md)
+### [Index] (../README.md)
 * [Laravel](#laravel)
-* [Bootstrap](#bootstrap)
+* [Bootstrap](bootstrap.md)
 * [some other file](./something/index.md)
 
 
@@ -57,6 +57,7 @@ in brief `routes > schema > model > controller > view`
 5. View
 
    // need to create the specific views
+   
 ---
 ** Crud Automation **
 
@@ -140,10 +141,3 @@ Lets assume that our entity name is BaseEntity
 
 
 
-
----
-
-### Bootstrap
-
-to install bootstrap, and customize bootstrap using Sass (SCSS), please follow the steps 
-below
