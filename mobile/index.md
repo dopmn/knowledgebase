@@ -1,1 +1,3 @@
-- [Ionic Framework](./ionic.md)
+### Index
+
+* [Ionic Framework](./ionic.md)
